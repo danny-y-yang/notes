@@ -131,6 +131,7 @@ DonutShop.newType(DonutShop)  // returns a new instance, but usually this is a m
 
 # Design Patterns
 ## Abstract Factory
+### Overview
 Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
 
 ```
@@ -153,8 +154,70 @@ public class AmericanProductB extends ProductB {...}
 
 From the perspective of the client: 
 ```
-ProductFactory chineseProductFactory = ChineseProductFactory.newInstance();
-ProductA chineseProductA = chineseProductFactory.createProductA(); // creates a new product A from China
+ProductFactory factory = new ChineseProductFactory();
+
+// Uses interface declared by abstract factory and product
+ProductA productA = factory.createProductA();            
+productA.ship();
+productA.handle();
+factory.close();
 ```
 
 ![alt text](https://github.com/danny-y-yang/notes/blob/master/abstract_factory_design.png "Abstract Factory Design")
+
+- __AbstractFactory__ (ProductFactory): declares interface for operations that create abstract product objects
+- __ConcreteFactory__ (ChineseProductFactory): implements operations to create concrete product objects
+- __AbstractProduct__ (ProductA): declares interface for a type of product object
+- __ConcreteProduct__ (ChineseProductA): implements AbstractProduct interface, defines the product being created by corresponding concrete factory
+- __Client__: uses only interfaces declared by AbstractFactory and AbstractProduct
+
+### Advantages/Disadvantages
+This allows the client to only use interfaces declared by abstract classes, which means the underlying concrete classes are decoupled from the actualy client code, allowing more flexibility and robustness. Since the concrete factory is only instantiated once in the code, changing the factory type will not affect the behavior of the rest of the code since the client uses methods provided by an interface.
+
+This also enforces __consistency__. By instantiating only ONE type of factory at a time, all the remaining behavior will correspond to that family of items (only Chinese methods of handling products). 
+
+__Problem__: If a new product (ProductC) is to be created by the AbstractFactory, then we must add functionality to the abstract class/interface, and ultimately add this feature to all of its subclasses. 
+
+### Techniques for Implementation
+#### Singleton Factories
+Only one instance of a ConcreteFactory is needed per product family (Only ONE Chinese factory and ONE american factory is needed)
+
+#### Creating Products
+If there are multiple product families, then a new concrete factory must be created for each family, even if the product families differ only slightly. To solve this, create __prototypes__. The concrete factory is initialized with a prototype of each product in the family, and is cloned and changed if a new product needs to be created. (ChineseFactory now produces Taiwan products, so use a Chinese product prototype to create this instead of creating a whole new TaiwanFactory).
+```
+// Bad
+class TaiwanProductFactory extends ProductFactory {
+  ... literally the same as Chinese except for a few features
+}
+
+// Good
+class ChineseProductFactory {
+  ProductA prototypeA = new ChineseProductA();
+  
+  ProductA CreateTaiwanProductA () {
+    return prototypeA.setLabel("MadeInTaiwan");
+  }
+}
+```
+
+#### Defining Extensible Factories
+If a productC is to be created by the factory, then we must implement this operation in the AbstractFactory as well as the subclasses implementing it. One solution would be to create a parameterized Make function, such as enforcing the client to request what kind of product they want (e.g Make("C"), Make("B"), etc..) The downside to this is that there is only one class that Make() will return, making the return type difficult to differentiate. This is the tradeoff between flexibility/extensibility and safety.
+
+```
+Product p = Make("A") // May or may not return ProductA 
+```
+We can downcast this:
+```
+Product p = (ProductA) Make("A") // Inherently unsafe
+```
+
+#### Add Inversion of Control
+Give the factory as a parameter to the class/method using it
+```
+public ProductA handleProductA(ProductFactory factory) {
+  ProductA p = factory.createProductA();
+  p.handle();
+  p.send();
+}
+```
+This decouples the hard dependency between the method and a specific type of factory, allowing for more flexibility and easier testing.
