@@ -16,13 +16,13 @@ Notes for a lifetime of engineering
       * [Techniques for Implementation](#techniques-for-implementation)
 
 # Introduction
-Learning a programming language is analogous to learning a real language: you must understand the:
+Learning a programming language is analogous to learning a real language, you must understand the:
 1. Grammar (how the language is structured)
-  - Is the programming language algorithmic, functional, or object oriented? 
+   - Is the programming language algorithmic, functional, or object oriented? 
 2. Vocabulary (how to name things you want to talk about):
-  - What data structures, operations, and facilities are provided by standard libraries? 
+   - What data structures, operations, and facilities are provided by standard libraries? 
 3. Usage (how to communicate common ideas naturally and effectively):
-  - Customary and effective ways to structure your code
+   - Customary and effective ways to structure your code
   
 ## Vocabulary
 ### Imperative
