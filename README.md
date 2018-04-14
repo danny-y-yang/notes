@@ -156,3 +156,5 @@ From the perspective of the client:
 ProductFactory chineseProductFactory = ChineseProductFactory.newInstance();
 ProductA chineseProductA = chineseProductFactory.createProductA(); // creates a new product A from China
 ```
+
+![alt text](https://github.com/danny-y-yang/notes/blob/master/abstract_factory_design.png "Abstract Factory Design")
