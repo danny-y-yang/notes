@@ -7,8 +7,8 @@ Notes for a lifetime of engineering
       * [Pure functions (Declarative)](pure-functions-(declarative))
       * [Creational Patterns](creational-patterns)
 * [Effective Java Practices](effective-java-practices)
-   * [Chapter I: Creation and Destruction of Objects](chapter i: creation-and-destruction-of-objects)
-      * [Item I: Static Factory Methods](item i: static-factory-methods)
+   * [Creation and Destruction of Objects](creation-and-destruction-of-objects)
+      * [Static Factory Methods](static-factory-methods)
          * [Advantages](advantages)
          * [Disadvantages](disadvantages)
 * [Design Patterns](design-patterns)
@@ -74,8 +74,8 @@ func f():
 - Abstract the instantiation process
 
 # Effective Java Practices
-## Chapter I: Creation and Destruction of Objects
-### Item I: Static Factory Methods
+## Creation and Destruction of Objects
+### Static Factory Methods
 - Another way for a class to provide a client an instance of itself, the other being a public constructor
 - This is simply a static method that returns an instance of the class
 - This is *not* the same as the Factory Method design pattern
