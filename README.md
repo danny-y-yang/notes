@@ -1,13 +1,10 @@
 # notes
 Notes for a lifetime of engineering
 
-* [notes](notes)
-* [design-patterns)](design-patterns))
-* [abstract-factory)](abstract-factory))
 * [Introduction](introduction)
    * [Vocabulary](vocabulary)
       * [Imperative](imperative)
-      * [Pure functions (Declarative);](pure-functions-(declarative);)
+      * [Pure functions (Declarative)](pure-functions-(declarative))
       * [Creational Patterns](creational-patterns)
 * [Effective Java Practices](effective-java-practices)
    * [Chapter I: Creation and Destruction of Objects](chapter-i:-creation-and-destruction-of-objects)
@@ -44,7 +41,7 @@ int n2 = 10;
 int n3 = 15;
 total = n1 + n2 + n3;
 ```
-### Pure functions (Declarative);
+### Pure functions (Declarative)
 - self-contained, and stateless. The return value is only determined by its input values, without any observable side effects, such as write to stdout, ask for user input, do I/O. e.g Math.cos(x) will always return the same result. Idempotent. It’s a coffee grinder: beans go in, powder comes out, end of story.
 
 - Benefits: easy readability & maintainability. No reliance on external state. Easy to test since each pure function is an isolated piece of logic.
