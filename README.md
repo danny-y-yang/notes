@@ -1,8 +1,26 @@
 # notes
 Notes for a lifetime of engineering
 
-* [I'm an inline-style link](#design-patterns)
-  * [Abstract Factory](#abstract-factory)
+*[abstract-factory)](abstract-factory))
+*[Introduction](introduction)
+ *[Vocabulary](vocabulary)
+  *[Imperative](imperative)
+  *[Pure functions (Declarative);](pure-functions-(declarative);)
+  *[Creational Patterns](creational-patterns)
+*[Effective Java Practices](effective-java-practices)
+ *[Chapter I: Creation and Destruction of Objects](chapter-i:-creation-and-destruction-of-objects)
+  *[Item I: Static Factory Methods](item-i:-static-factory-methods)
+   *[Advantages](advantages)
+   *[Disadvantages](disadvantages)
+*[Design Patterns](design-patterns)
+ *[Abstract Factory](abstract-factory)
+  *[Overview](overview)
+  *[Advantages/Disadvantages](advantages/disadvantages)
+  *[Techniques for Implementation](techniques-for-implementation)
+   *[Singleton Factories](singleton-factories)
+   *[Creating Products](creating-products)
+   *[Defining Extensible Factories](defining-extensible-factories)
+   *[Add Inversion of Control](add-inversion-of-control)
 
 # Introduction
 Learning a programming language is analogous to learning a real language: you must understand the:
