@@ -2,7 +2,7 @@
 Notes for a lifetime of engineering
 
 * [I'm an inline-style link](#design-patterns)
-  * [Abstract Factory] (#abstract-factory)
+  * [Abstract Factory](#abstract-factory)
 
 # Introduction
 Learning a programming language is analogous to learning a real language: you must understand the:
