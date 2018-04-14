@@ -9,9 +9,6 @@ Learning a programming language is analogous to learning a real language: you mu
   - What data structures, operations, and facilities are provided by standard libraries? 
 3. Usage (how to communicate common ideas naturally and effectively):
   - Customary and effective ways to structure your code
-  
-## Java
-Object oriented, single inheritance, imperative. 
 
 ## Vocabulary
 #### Imperative
