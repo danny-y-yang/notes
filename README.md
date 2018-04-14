@@ -1,6 +1,9 @@
 # notes
 Notes for a lifetime of engineering
 
+[I'm an inline-style link](https://github.com/danny-y-yang/notes/edit/master/README.md#<design patterns>)
+
+
 # Introduction
 Learning a programming language is analogous to learning a real language: you must understand the:
 1. Grammar (how the language is structured)
