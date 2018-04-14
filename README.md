@@ -1,7 +1,7 @@
 # notes
 Notes for a lifetime of engineering
 
-[I'm an inline-style link](<https://github.com/danny-y-yang/notes/blob/master/README.md<design patterns>>)
+[I'm an inline-style link](#design-patterns)
 
 
 # Introduction
