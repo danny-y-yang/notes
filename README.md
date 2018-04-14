@@ -9,9 +9,9 @@ Learning a programming language is analogous to learning a real language: you mu
   - What data structures, operations, and facilities are provided by standard libraries? 
 3. Usage (how to communicate common ideas naturally and effectively):
   - Customary and effective ways to structure your code
-
+  
 ## Vocabulary
-#### Imperative
+### Imperative
 - Uses a sequence of statements to determine how to reach a certain goal. Each statement changes the state of the program as they are executed in turn.
 
 ```
@@ -21,7 +21,7 @@ int n2 = 10;
 int n3 = 15;
 total = n1 + n2 + n3;
 ```
-#### Pure functions (Declarative);
+### Pure functions (Declarative);
 - self-contained, and stateless. The return value is only determined by its input values, without any observable side effects, such as write to stdout, ask for user input, do I/O. e.g Math.cos(x) will always return the same result. Idempotent. It’s a coffee grinder: beans go in, powder comes out, end of story.
 
 - Benefits: easy readability & maintainability. No reliance on external state. Easy to test since each pure function is an isolated piece of logic.
@@ -50,13 +50,17 @@ func f():
   return a;
 ```
 
-# Chapter I: Creation and Destruction of Objects
-## Item I: Static Factory Methods
+### Creational Patterns
+- Abstract the instantiation process
+
+# Effective Java Practices
+## Chapter I: Creation and Destruction of Objects
+### Item I: Static Factory Methods
 - Another way for a class to provide a client an instance of itself, the other being a public constructor
 - This is simply a static method that returns an instance of the class
 - This is *not* the same as the Factory Method design pattern
 
-### Advantages
+#### Advantages
 1. They have names, unlike constructors. 
 ```
 BigInteger(a, b, c) --> ?? Could be a prime integer, or it might not. Needs more description! 
@@ -96,7 +100,7 @@ Map<ExtremelyLongString, AnotherExtremelyLongString> = new HashMap<ExtremelyLong
 Map<ExtremelyLongString, AnotherExtremelyLongString> = HashMap.newInstance();
 ```
 
-### Disadvantages
+#### Disadvantages
 1. Classes with public static factory methods, and __private constructors__ cannot be subclassed. 
 ```
 class Person {
@@ -123,4 +127,32 @@ DonutShop.getInstance         // returns an existing instance. Singleton instanc
 DonutShop.newInstance         // returns a new instance using parameters
 Mall.getType(DonutShop)       // returns an existing instance, but usually this is a method in a different class
 DonutShop.newType(DonutShop)  // returns a new instance, but usually this is a method in a different class
+```
+
+# Design Patterns
+## Abstract Factory
+Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
+
+```
+private abstract class ProductFactory() {
+  public ProductA createProductA();
+  public ProductB createProductB();
+}
+
+public class ChineseProductFactory extends ProductFactory() {...}
+public class AmericanProductFactory extends ProductFactory() {...}
+
+private abstract class ProductA {...}
+private abstract class ProductB {...}
+
+public class ChineseProductA extends ProductA {...}
+public class ChineseProductB extends ProductB {...}
+public class AmericanProductA extends ProductA {...}
+public class AmericanProductB extends ProductB {...}
+```
+
+From the perspective of the client: 
+```
+ProductFactory chineseProductFactory = ChineseProductFactory.newInstance();
+ProductA chineseProductA = chineseProductFactory.createProductA(); // creates a new product A from China
 ```
